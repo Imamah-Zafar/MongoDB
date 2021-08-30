@@ -1,0 +1,579 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Demo api documentation",
+    "version": "1.0.0",
+    "title": "Demo"
+  },
+  "basePath": "/",
+  "host": "",
+  "tags": [
+    {
+      "name": "User",
+      "description": "Everything about your Users"
+    },
+    {
+      "name": "Category",
+      "description": "Everything about your Category"
+    },
+    {
+      "name": "Posts",
+      "description": "Everything about your Posts"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/api/v1/users/login": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Login user",
+        "description": "Login user",
+        "operationId": "login",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Login user",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Login"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Invalid input"
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/v1/users/signup": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Signup user",
+        "description": "Signup user",
+        "operationId": "signup",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Signup user",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Signup"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Invalid input"
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/v1/users/profile": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Get my profile",
+        "description": "Get my profile",
+        "operationId": "profile",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+        ],
+        "responses": {
+          "400": {
+            "description": "Invalid input"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/v1/users": {
+      "put": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Update my profile",
+        "description": "Update my profile",
+        "operationId": "update-user",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Update user",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Signup"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Invalid input"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/v1/categories": {
+      "get": {
+        "tags": [
+          "Category"
+        ],
+        "summary": "Get Category",
+        "description": "Get Category",
+        "operationId": "get-categories",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+        ],
+        "responses": {
+          "200": {
+            "description": "success"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Category"
+        ],
+        "summary": "Add Category",
+        "description": "Add Category",
+        "operationId": "add-category",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Category",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Category"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/v1/categories{id}": {
+      "put": {
+        "tags": [
+          "Category"
+        ],
+        "summary": "Update Category",
+        "description": "Update Category",
+        "operationId": "update-category",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Category",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Category"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Category"
+        ],
+        "summary": "Delete Category",
+        "description": "Delete Category",
+        "operationId": "delete-category",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+        ],
+        "responses": {
+          "200": {
+            "description": "success"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+  "/api/v1/posts": {
+    "post": {
+      "tags": [
+        "Posts"
+      ],
+      "summary": "Add Post",
+      "description": "Add Post",
+      "operationId": "add-post",
+      "consumes": [
+        "application/json"
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "parameters": [
+        {
+          "in": "body",
+          "name": "body",
+          "description": "Posts",
+          "required": true,
+          "schema": {
+            "$ref": "#/definitions/Posts"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "success"
+        }
+      },
+      "security": [
+        {
+          "bearerAuth": []
+        }
+      ]
+    }
+  },
+  "/api/v1/posts/{id}": {
+    "put": {
+      "tags": [
+        "Posts"
+      ],
+      "summary": "Update Posts",
+      "description": "Update Posts",
+      "operationId": "update-posts",
+      "consumes": [
+        "application/json"
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "parameters": [
+        {
+          "in":"path",
+          "name":"id",
+          "required":true,
+          "type": "string"
+        },
+        {  "in": "body",
+          "name": "body",
+          "description": "Posts",
+          "required": true,
+          "schema": {
+            "$ref": "#/definitions/Posts"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "success"
+        }
+      },
+      "security": [
+        {
+          "bearerAuth": []
+        }
+      ]
+    },
+    "delete": {
+      "tags": [
+        "Posts"
+      ],
+      "summary": "Delete Posts",
+      "description": "Delete Posts",
+      "operationId": "delete-posts",
+      "consumes": [
+        "application/json"
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "parameters": [
+        {
+          "in":"path",
+          "name":"id",
+          "required":true,
+          "type": "string"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "success"
+        }
+      },
+      "security": [
+        {
+          "bearerAuth": []
+        }
+      ]
+    }
+  },
+  "/api/v1/posts/AllPosts": {
+    "get": {
+      "tags": [
+        "Posts"
+      ],
+      "summary": "Get All Post",
+      "description": "Get All Post",
+      "operationId": "get-all-post",
+      "consumes": [
+        "application/json"
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "parameters": [
+      ],
+      "responses": {
+        "200": {
+          "description": "success"
+        }
+      },
+      "security": [
+        {
+          "bearerAuth": []
+        }
+      ]
+    }
+  },
+  "/api/v1/posts/getPost/{id}": {
+    "get": {
+      "tags": [
+        "Posts"
+      ],
+      "summary": "Get Post",
+      "description": "Get Post",
+      "operationId": "get-post",
+      "consumes": [
+        "application/json"
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "parameters": [
+        {
+          "in":"path",
+          "name":"id",
+          "required":true,
+          "type": "string"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "success"
+        }
+      },
+      "security": [
+        {
+          "bearerAuth": []
+        }
+      ]
+    }
+  }
+},
+  "securityDefinitions": {
+    "bearerAuth": {
+      "type": "apiKey",
+      "scheme": "Bearer",
+      "bearerFormat": "JWT",
+      "name": "Authorization",
+      "in": "header"
+    }
+  },
+  "definitions": {
+    "Login": {
+      "type": "object",
+      "required": [
+        "password",
+        "email"
+      ],
+      "properties": {
+        "email": {
+          "type": "string",
+          "example": "user@domain.com"
+        },
+        "password": {
+          "type": "string",
+          "example": "123456"
+        }
+      },
+      "xml": {
+        "name": "User"
+      }
+    },
+    "Category": {
+      "type": "object",
+      "required": [
+        "title",
+        "description"
+      ],
+      "properties": {
+        "title": {
+          "type": "string",
+          "example": "Halal"
+        },
+        "description": {
+          "type": "string",
+          "example": "lorum ipsum"
+        },
+        "picture": {
+          "type": "string",
+          "example": "https://s3.amazonaws.com/37assets/svn/765-default-avatar.png"
+        }
+      },
+      "xml": {
+        "name": "Category"
+      }
+    },
+    "Posts":{
+      "type": "object",
+      "required": [
+        "title",
+        "body"
+      ],
+      "properties": {
+        "title": {
+          "type": "string",
+          "example": "Weather Update"
+        },
+        "body": {
+          "type": "string",
+          "example": "Today is Sunny "
+        }
+      },
+      "xml": {
+        "name": "Posts"
+      }
+    },
+    "Signup": {
+      "type": "object",
+      "required": [
+        "password",
+        "email",
+        "firstName",
+        "lastName",
+        "role",
+        "phoneNumber"
+      ],
+      "properties": {
+        "email": {
+          "type": "string",
+          "example": "jim@gmail.com"
+        },
+        "password": {
+          "type": "string",
+          "example": "123456"
+        },
+        "firstName": {
+          "type": "string",
+          "example": "jon"
+        },
+        "lastName": {
+          "type": "string",
+          "example": "doe"
+        },
+        "phoneNumber": {
+          "type": "string",
+          "example": "+13433423443"
+        },
+        "role": {
+          "type": "string",
+          "example": "USER",
+          "enum": [
+            "USER",
+            "CHEF",
+            "KICHEN_OWNER"
+          ]
+        }
+      },
+      "xml": {
+        "name": "Singup"
+      }
+    }
+  }
+}
